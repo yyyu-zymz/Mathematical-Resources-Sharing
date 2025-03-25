@@ -1,0 +1,172 @@
+/* General Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+    color: #333;
+}
+
+/* Top Background */
+body {
+    /* Set the first image (111.jpg) as the top background */
+    background: url('111.jpg') no-repeat center top fixed;
+    background-size: cover;
+}
+
+/* Main container styles */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.9); /* Transparent white to allow the background image */
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Set the second image (222.jpg) as the background for the content section */
+.main-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('111.jpg') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.3; /* Adjusted opacity for better visibility */
+    z-index: -1; /* Ensure it stays in the background */
+}
+
+/* Header Styling */
+h1 {
+    font-family: 'Georgia', serif;
+    font-size: 3.5em;
+    text-align: center;
+    color: white;
+    padding: 40px;
+    margin-top: 0;
+    background: linear-gradient(45deg, #9C27B0, #3E3E3E); /* Purple and Black gradient */
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    letter-spacing: 3px;
+}
+
+/* Area Styles */
+.area {
+    width: 80%;
+    background-color: white;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #9C27B0; /* Purple color */
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Area Hover Effect */
+.area:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Titles within the Areas */
+.area h2 {
+    font-size: 2.5em;
+    font-family: 'Georgia', serif;
+    margin-bottom: 20px;
+    color: #9C27B0; /* Purple for titles */
+    display: flex;
+    align-items: center;
+}
+
+/* Paragraphs within each area */
+.area p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+    margin: 20px 0;
+}
+
+/* List Styling */
+ul {
+    font-size: 1.2em;
+    color: #555;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 35px;
+}
+
+ul li:before {
+    content: '•';
+    color: #9C27B0; /* Purple color for bullets */
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5em;
+}
+
+/* Styling Links */
+ul li a {
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #2196F3; /* Blue for links */
+    border: 2px solid #2196F3;
+    padding: 8px 20px;
+    margin-left: 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+ul li a:hover {
+    background-color: #2196F3;
+    color: white;
+}
+
+/* Make sure the page looks good on all screen sizes */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 3em;
+        padding: 20px;
+    }
+
+    .main-container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .area {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #9C27B0;
+    border-radius: 6px;
+    border: 3px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #7B1FA2;
+}
