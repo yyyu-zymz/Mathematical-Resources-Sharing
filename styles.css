@@ -1,155 +1,199 @@
 /* General Styling */
-body, html {
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+}
+
+body, html {
     height: 100%;
-    color: #333;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden; /* Ensure no horizontal scroll */
+    overflow-y: auto;   /* Enable vertical scroll */
+    color: #444;
+    background: linear-gradient(135deg, #FFB6C1, #FFC0CB, #DDA0DD); /* Full-page gradient background */
 }
 
-/* Top Background */
-body {
-    /* Set the first image (111.jpg) as the top background */
-    background: url('111.jpg') no-repeat center top fixed;
-    background-size: cover;
-}
-
-/* Main container styles */
-.main-container {
+/* Fullscreen hero section with a custom light gradient background */
+.hero-section {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 40px 20px;
-    max-width: 1100px;
-    margin: auto;
-    background-color: rgba(255, 255, 255, 0.9); /* Transparent white to allow the background image */
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    position: relative;
-    z-index: 1;
-}
-
-/* Set the second image (222.jpg) as the background for the content section */
-.main-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('111.jpg') no-repeat center center fixed;
-    background-size: cover;
-    opacity: 0.3; /* Adjusted opacity for better visibility */
-    z-index: -1; /* Ensure it stays in the background */
-}
-
-/* Header Styling */
-h1 {
-    font-family: 'Georgia', serif;
-    font-size: 3.5em;
-    text-align: center;
+    height: 100vh;
+    background: transparent; /* No background here since it's inherited */
     color: white;
-    padding: 40px;
-    margin-top: 0;
-    background: linear-gradient(45deg, #9C27B0, #3E3E3E); /* Purple and Black gradient */
-    border-radius: 10px;
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
-    letter-spacing: 3px;
+    text-align: center;
+    padding: 20px;
 }
 
-/* Area Styles */
-.area {
-    width: 80%;
-    background-color: white;
-    margin-bottom: 30px;
+/* Main title with enhanced gradient text */
+.hero-title h1 {
+    font-size: 5em;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    color: transparent;
+    background-image: linear-gradient(45deg, #fc5c7d, #6a82fb); /* Gradient text */
+    background-clip: text;
+    margin: 0;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7); /* Shadow to improve readability */
+}
+
+/* Description for Webpage Introduction and Author Contact */
+.hero-description {
+    font-size: 1.5em;
+    max-width: 800px;
+    margin-top: 60px; /* Increased margin to separate the title from the description */
+    margin-bottom: 50px; /* Increased margin for better spacing */
+}
+
+.hero-description h2 {
+    font-size: 2em;
+    margin-bottom: 30px; /* Increased bottom margin for spacing between headings */
+}
+
+.hero-description p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+.hero-description a {
+    color: #2196f3;
+    text-decoration: none;
+}
+
+.hero-description a:hover {
+    text-decoration: underline;
+}
+
+/* Main content styling with background filling the screen */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    max-width: 1300px;
+    margin: auto;
+    background: transparent; /* Background is inherited */
+    height: auto;
+    min-height: 100vh;
+}
+
+/* Left side (Math Modules) */
+.left-side {
+    width: 48%;
+    background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    border-left: 5px solid #9C27B0; /* Purple color */
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-/* Area Hover Effect */
-.area:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-/* Titles within the Areas */
-.area h2 {
-    font-size: 2.5em;
-    font-family: 'Georgia', serif;
-    margin-bottom: 20px;
-    color: #9C27B0; /* Purple for titles */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+    height: auto;
 }
 
-/* Paragraphs within each area */
-.area p {
-    font-size: 1.2em;
-    line-height: 1.6;
-    color: #555;
-    margin: 20px 0;
+/* Right side (Daily Practice & Other Content) */
+.right-side {
+    width: 48%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+    height: auto;
+}
+
+/* Section Titles */
+h2 {
+    font-family: 'Georgia', serif;
+    font-size: 2.5em;
+    color: #4a148c; /* Purple color for headers */
+    border-bottom: 2px solid #4a148c;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 /* List Styling */
 ul {
-    font-size: 1.2em;
-    color: #555;
     list-style-type: none;
     padding-left: 0;
+    font-size: 1.2em;
 }
 
 ul li {
     margin-bottom: 15px;
     position: relative;
-    padding-left: 35px;
+    padding-left: 30px;
 }
 
-ul li:before {
+/* Custom bullet points */
+ul li::before {
     content: '•';
-    color: #9C27B0; /* Purple color for bullets */
+    color: #fc5c7d; /* Matching soft pink color */
     position: absolute;
     left: 0;
     top: 0;
     font-size: 1.5em;
 }
 
-/* Styling Links */
+/* Styling links */
 ul li a {
-    font-size: 1.2em;
     text-decoration: none;
-    color: #2196F3; /* Blue for links */
-    border: 2px solid #2196F3;
-    padding: 8px 20px;
+    color: #2196f3;
+    border: 2px solid #2196f3;
+    padding: 8px 16px;
     margin-left: 15px;
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ul li a:hover {
-    background-color: #2196F3;
+    background-color: #2196f3;
     color: white;
 }
 
-/* Make sure the page looks good on all screen sizes */
-@media screen and (max-width: 768px) {
-    h1 {
-        font-size: 3em;
-        padding: 20px;
-    }
+/* Add animation to daily practice section */
+.daily-practice {
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 2s ease-out;
+    margin-bottom: 20px;
+}
 
-    .main-container {
-        width: 95%;
-        padding: 20px;
+/* Animation for smooth fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
     }
+    to {
+        opacity: 1;
+    }
+}
 
-    .area {
-        width: 90%;
-        margin-bottom: 20px;
-    }
+/* Hover effect for Daily Practice section */
+.daily-practice:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Section for Mathematics Competition */
+.mathematics-competition, .relevant-content {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+/* Add cool hover effects */
+.mathematics-competition:hover, .relevant-content:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 /* Custom Scrollbar */
@@ -158,15 +202,55 @@ ul li a:hover {
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: rgba(0, 0, 0, 0.05);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #9C27B0;
+    background-color: #4a148c;
     border-radius: 6px;
-    border: 3px solid #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #7B1FA2;
+    background-color: #6a82fb;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #4a148c;
+    color: white;
+    font-size: 1.2em;
+}
+
+/* Particle background */
+#bgCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .left-side, .right-side {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    ul li {
+        font-size: 1.1em;
+    }
 }
