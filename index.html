@@ -1,86 +1,359 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathematical Resources Sharing</title>
+    <title>数学资源中心</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
     <script src="script.js" defer></script>
 </head>
+
 <body>
-    <!-- Fullscreen Section for Title and Introduction -->
-    <div class="hero-section">
+    <canvas id="bgCanvas"></canvas>
+    <!-- 固定导航栏 -->
+    <nav class="sticky-nav">
+        <ul>
+            <li><a href="#home">首页</a></li>
+            <li><a href="#content">内容</a></li>
+            <li><a href="#plotter">绘图</a></li>
+            <li><a href="#resources">资源</a></li>
+            <li><a href="#books">书籍</a></li>
+        </ul>
+    </nav>
+
+    <!-- 首页 -->
+    <header id="home" class="hero-section">
         <div class="hero-title">
-            <h1 id="main-title"></h1> <!-- Title with dynamic typing effect -->
+            <h1 id="main-title"></h1>
         </div>
         <div class="hero-description">
-            <h2>Webpage Introduction</h2>
-            <p>This website is dedicated to sharing advanced mathematical resources. It includes a wide range of topics, lecture notes, and interactive tools for students and enthusiasts alike.</p>
-            <h2>Author Contact</h2>
-            <p>For any inquiries or collaboration, feel free to reach out via email at <a href="mailto:author@example.com">author@example.com</a>.</p>
+            <h2>网站简介</h2>
+            <p>恭喜您！在茫茫人海中终于发现了这个汇聚知识与智慧的空间---数学资源共享平台！
+               为了让您能更好地领略数学的美丽，我精心构建了系统化的数学核心知识体系，让您能深入理解每一个公式和定理；
+               配备了先进的交互式绘图工具，让抽象的数学概念变得生动可感；资源库内汇聚了丰富的学习材料与工具，能帮助您探索数学的无限可能；
+               同时，我还为您推荐了许多精选教材，让您能与先贤们共同领略数学的深邃与优雅。
+               那么，在这个与数学邂逅的理想之地，赶快开启一段您与数字和公式的奇妙旅程吧！！！
+            </p>
+            <h2>联系方式</h2>
+            <p>个人邮箱：<a href="mailto:347924016@qq.com">347924016@qq.com</a></p>
+        </div>
+    </header>
+
+    <!-- 主要内容容器 -->
+    <main class="main-container">
+        <!-- 第一部分：基本知识整理 -->
+        <section id="content" class="knowledge-section">
+            <h2 class="section-title">核心知识体系</h2>
+            <div class="content-grid">
+                <!-- 原有数学教材内容 -->
+                <div class="left-side">
+                    <div class="mathematics-module">
+                        <h3>高等数学 第一卷</h3>
+                        <ul>
+                            <li>
+                                <a href="images/讲义1.jpg" class="chapter-link" target="_blank">
+                                    <span class="lecture-icon">📘</span>
+                                    Lecture 1: 预备知识
+                                    
+                                </a>
+                            </li>
+                            <li>Lecture 2: 序列与函数极限</li>
+                            <li>Lecture 3: 连续函数与导数</li>
+                            <li>Lecture 4: 不定积分</li>
+                            <li>Lecture 5: 定积分</li>
+                            <li>Lecture 6: 微分中值定理</li>
+                            <li>Lecture 7: 洛必达与泰勒展开</li>
+                            <li>Lecture 8: 函数性质</li>
+                            <li>Lecture 9: 解析几何</li>
+                            <li>Lecture 10: 多元函数微分学</li>
+                        </ul>
+                    </div>
+                    <div class="mathematics-module">
+                        <h3>高等数学 第二卷</h3>
+                        <ul>
+                            <li>
+                                <a href="images/讲义2.jpg" class="chapter-link" target="_blank">
+                                    <span class="lecture-icon">📙</span>
+                                    Lecture 1: 二重积分
+                                </a>
+                            </li>
+                            <li>Lecture 2: 三重积分</li>
+                            <li>Lecture 3: 曲线积分</li>
+                            <li>Lecture 4: 曲面积分</li>
+                            <li>Lecture 5: 常微分方程</li>
+                            <li>Lecture 6: 数项级数</li>
+                            <li>Lecture 7: 幂级数</li>
+                            <li>Lecture 8: 无穷积分与瑕积分</li>
+                            <li>Lecture 9: 含参变量积分</li>
+                            <li>Lecture 10: 傅里叶级数</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 右侧练习区 -->
+               <div class="right-side">
+               <div class="practice-deck">
+               <h3>📅 每日练习追踪</h3>
+        <!-- 单个卡片示例 -->
+        <div class="math-card" data-date="4.11">
+            <div class="card-header">
+                <span class="date-badge">DAY 5</span>
+                <div class="progress-wrap">
+                    <div class="progress-bar" style="width: 30%"></div>
+                    <span class="progress-text">30%</span>
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <h4 class="card-title">函数与极限</h4>
+                <div class="card-tags">
+                    <span class="tag">微分学</span>
+                    <span class="tag">洛必达法则</span>
+                </div>
+            </div>
+
+            <div class="card-actions">
+                <a href="images/题目1.jpg" 
+                   class="action-btn question-btn"
+                   target="_blank">
+                    <svg class="icon">...</svg>
+                    查看题目
+                </a>
+                <a href="images/答案1.jpg"
+                   class="action-btn solution-btn"
+                   target="_blank">
+                    <svg class="icon">...</svg>
+                    答案解析
+                </a>
+            </div>
+            
+            <div class="card-decoration">
+                <div class="math-symbol">∫</div>
+            </div>
+        </div>
+                    
+
+
+
+        <div class="math-card" data-date="4.15">
+            <div class="card-header">
+                <span class="date-badge">DAY 9</span>
+                <div class="progress-wrap">
+                    <div class="progress-bar" style="width: 45%"></div>
+                    <span class="progress-text">45%</span>
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <h4 class="card-title">一元积分学</h4>
+                <div class="card-tags">
+                    <span class="tag">不定积分</span>
+                    <span class="tag">定积分</span>
+                </div>
+            </div>
+
+            <div class="card-actions">
+                <a href="images/题目2.jpg" 
+                   class="action-btn question-btn"
+                   target="_blank">
+                    <svg class="icon">...</svg>
+                    查看题目
+                </a>
+                <a href="images/答案2.jpg"
+                   class="action-btn solution-btn"
+                   target="_blank">
+                    <svg class="icon">...</svg>
+                    答案解析
+                </a>
+            </div>
+            
+            <div class="card-decoration">
+                <div class="math-symbol">∫</div>
+            </div>
+        </div>
+
+
+
+                    <!-- 数学竞赛时间轴 -->
+                    <div class="timeline-section">
+                        <h3>⏳ 竞赛时间轴</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2025-11-09</div>
+                                <div class="timeline-content">
+                                    <h4>全国大学生数学竞赛</h4>
+                                    <p>报名截止：2025-09-30</p>
+                                    <a href="https://www.cmathc.org.cn/" target="_blank">📥 下载考纲</a>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2025-05-17</div>
+                                <div class="timeline-content">
+                                    <h4>丘成桐大学生数学竞赛</h4>
+                                    <p>报名截止：2025-04-15</p>
+                                    <a href="http://yau-contest.com/lists-jxxg.html" target="_blank">📥 下载考纲</a>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">2025-06-23</div>
+                                <div class="timeline-content">
+                                    <h4>阿里巴巴全球数学竞赛</h4>
+                                    <p>报名截止：2025-05-12</p>
+                                    <a href="https://damo.alibaba.com/alibaba-global-mathematics-competition?lang=zh&language=zh" target="_blank">📥 下载考纲</a>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                    </div>
+                 
+        </section>
+
+<!-- 函数绘图器 -->
+<section id="plotter" class="plotter-section">
+    <h2 class="section-title">函数绘图实验室</h2>
+    <div class="plotter-panel">
+        <input type="text" id="function-input" placeholder="输入函数式（例如：sin(x)*x^2）">
+        <div class="control-group">
+            <button id="plot-btn">绘制曲线</button>
+            <input type="number" id="x-min" value="-10" step="1">
+            <input type="number" id="x-max" value="10" step="1">
+        </div>
+        <div id="graph-container" class="canvas-box"></div>
+        <div id="error-msg" class="error-alert"></div>
+    </div>
+</section>
+   <!-- 精选资源库部分 -->
+<section id="resources" class="resource-section">
+    <h2 class="section-title">📖 精选资源库</h2>
+    <div class="dual-columns">
+        <!-- 左栏 - 学术资源 -->
+        <div class="academic-column">
+            <div class="column-header">
+                <div class="decorative-math">∫</div>
+                <h3>学术研究</h3>
+                <div class="column-subtitle">探索数学前沿</div>
+            </div>
+            <ul class="resource-list">
+                <li>
+                    <a href="https://arxiv.org" target="_blank">
+                        <span class="link-icon">📜</span>
+                        <div class="link-content">
+                            <span class="link-title">arXiv 预印本库</span>
+                            <span class="link-desc">每日更新最新数学论文</span>
+                        </div>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://zbmath.org" target="_blank">
+                        <span class="link-icon">🔍</span>
+                        <div class="link-content">
+                            <span class="link-title">zbMATH 数据库</span>
+                            <span class="link-desc">收录300万+数学文献</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 右栏 - 竞赛资源 -->
+        <div class="competition-column">
+            <div class="column-header">
+                <div class="decorative-math">∑</div>
+                <h3>数学竞赛</h3>
+                <div class="column-subtitle">挑战思维极限</div>
+            </div>
+            <ul class="resource-list">
+                <li>
+                    <a href="https://artofproblemsolving.com" target="_blank">
+                        <span class="link-icon">🏆</span>
+                        <div class="link-content">
+                            <span class="link-title">AoPS 社区</span>
+                            <span class="link-desc">国际竞赛解题平台</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://leetcode.cn/?utm_source=LCUS&utm_medium=ip_redirect&utm_campaign=transfer2china" target="_blank">
+                        <span class="link-icon">💻</span>
+                        <div class="link-content">
+                            <span class="link-title">Project Euler</span>
+                            <span class="link-desc">编程数学挑战平台</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
-
-    <!-- Main content of the page -->
-    <div class="main-content">
-        <!-- Left Side (Math Modules) -->
-        <div class="left-side">
-            <div class="mathematics-module">
-                <h2>Advanced Mathematics, Volume 1</h2>
-                <ul>
-                    <li>Lecture 1: 预备知识</li>
-                    <li>Lecture 2: 序列与函数极限</li>
-                    <li>Lecture 3: 连续函数与导数</li>
-                    <li>Lecture 4: 不定积分</li>
-                    <li>Lecture 5: 定积分</li>
-                    <li>Lecture 6: 微分中值定理</li>
-                    <li>Lecture 7: 洛必达与泰勒展开</li>
-                    <li>Lecture 8: 函数性质</li>
-                    <li>Lecture 9: 解析几何</li>
-                    <li>Lecture 10: 多元函数微分学</li>
-                </ul>
+</section>
+<section id="books" class="book-section">
+    <h2 class="section-title">📖 经典教材推荐</h2>
+    <div class="book-grid">
+        <!-- 高等数学 -->
+        <article class="book-card">
+            <div class="book-cover">
+                <img src="images/advanced-math.jpg" alt="高等数学">
+                <div class="book-meta">
+                    <span class="book-tag">教育部推荐教材</span>
+                    <span class="book-rating">⭐4.9</span>
+                </div>
             </div>
-
-            <div class="mathematics-module">
-                <h2>Advanced Mathematics, Volume 2</h2>
-                <ul>
-                    <li>Lecture 1: 二重积分</li>
-                    <li>Lecture 2: 三重积分</li>
-                    <li>Lecture 3: 曲线积分</li>
-                    <li>Lecture 4: 曲面积分</li>
-                    <li>Lecture 5: 常微分方程</li>
-                    <li>Lecture 6: 数项级数</li>
-                    <li>Lecture 7: 幂级数</li>
-                    <li>Lecture 8: 无穷积分与瑕积分</li>
-                    <li>Lecture 9: 含参变量积分</li>
-                    <li>Lecture 10: 傅里叶级数</li>
-                </ul>
+            <div class="book-info">
+                <h3>高等数学（第七版）</h3>
+                <p class="book-intro">涵盖微积分核心内容，配有500+立体化习题，附赠3D函数可视化资源...</p>
+                
             </div>
-        </div>
+        </article>
 
-        <!-- Right Side (Daily Practice and Other Content) -->
-        <div class="right-side">
-            <div class="daily-practice">
-                <h2>Daily Practice</h2>
-                <ul>
-                    <li>3.11（1/30）</li>
-                    <li>3.12（1/30）</li>
-                    <li>3.13（1/30）</li>
-                    <li>3.15（1/30）</li>
-                </ul>
+        <!-- 线性代数 -->
+        <article class="book-card">
+            <div class="book-cover">
+                <img src="images/linear-algebra.jpg" alt="线性代数">
+                <div class="book-meta">
+                    <span class="book-tag">矩阵可视化</span>
+                    <span class="book-rating">⭐4.8</span>
+                </div>
             </div>
+            <div class="book-info">
+                <h3>线性代数及其应用</h3>
+                <p class="book-intro">结合几何直观与编程实践，提供MATLAB/Python实现范例...</p>
+                
+            </div>
+        </article>
 
-            <div class="mathematics-competition">
-                <h2>Mathematics Competition</h2>
-                <p>Information and links related to various mathematics competitions.</p>
+        <!-- 离散数学 -->
+        <article class="book-card">
+            <div class="book-cover">
+                <img src="images/discrete-math.jpg" alt="离散数学">
+                <div class="book-meta">
+                    <span class="book-tag">逻辑训练</span>
+                    <span class="book-rating">⭐4.7</span>
+                </div>
             </div>
-
-            <div class="relevant-content">
-                <h2>Relevant Content</h2>
-                <p>Content links and resources related to advanced mathematics and mathematical competitions.</p>
+            <div class="book-info">
+                <h3>离散数学导论</h3>
+                <p class="book-intro">融合图论与算法设计，包含200+交互式证明动画演示...</p>
+                
             </div>
-        </div>
+        </article>
     </div>
+</section>
+    </main>
+    <canvas id="bgCanvas"></canvas>
 
+    <footer class="fixed-footer">
+        <div class="footer-content">
+            <span class="student-info">余力文 23160171</span>
+        </div>
+    </footer>
 </body>
+
 </html>
